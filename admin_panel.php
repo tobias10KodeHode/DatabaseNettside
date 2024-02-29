@@ -10,17 +10,15 @@
 <body>
     <h1> DU ER LOGGET INN </h1>
     <div class="add_data">
+        <h2>Sett inn data</h2>
         <form action="add_data.php" method="post">
-            <label for="name">Full Name:</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">Email:</label>
-            <input type="text" id="email" name="email" required>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-            <button type="submit">Add Data</button>
+            Full Name: <input type="text" name="fullname"><br>
+            Email: <input type="email" name="email"><br>
+            Password: <input type="password" name="cred"><br> <!-- Change this to match your database column name -->
+            <input type="submit" value="Submit">
         </form>
     </div>
-
+    <br>
 </body>
 
 </html>

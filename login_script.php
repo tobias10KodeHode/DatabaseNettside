@@ -17,6 +17,7 @@ if (mysqli_connect_errno()) {
 }
 
 
+
 // Retrieving username and password from form submission
 $username = mysqli_real_escape_string($connection, $_POST['username']);
 $password = mysqli_real_escape_string($connection, $_POST['password']);
