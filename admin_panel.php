@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styling/admin_panel.css">
     <title>Admin Panel</title>
 </head>
 
@@ -19,11 +20,11 @@
         </form>
     </div>
     <br>
-    <div class="remove_data">
+    <div class="display_data">
         <h1> User Info </h1>
         <?php
         // Include the database connection and query code
-        include 'remove_data.php';
+        include 'display_data.php';
 
         // Check if there are any rows returned
         if ($result->num_rows > 0) {
