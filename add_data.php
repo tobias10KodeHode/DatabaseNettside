@@ -1,12 +1,13 @@
 <?php
 
-$serverName = "localhost";
-$userName = "tobias";
-$password = "lWKtbY1ce4A8BhiK";
+$serverName = "mysql-164554-0.cloudclusters.net";
+$userName = "admin";
+$passWord = "i82lnHyw";
 $dbName = "userdb";
+$dbServerPort ="19904";
 
 // Establish database connection
-$connection = mysqli_connect($serverName, $userName, $password, $dbName);
+$connection = mysqli_connect($serverName, $userName, $passWord, $dbName, $dbServerPort);
 
 // Check connection
 if (!$connection) {
@@ -17,14 +18,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Collect data from the form
     $fullname = $_POST["fullname"];
     $email = $_POST["email"];
-    $cred = $_POST["cred"];
+    $cred = $_POST["credentials"];
+
+    $when_created = date('Y-m-d H:i:s');
 
     // Prepare SQL statement
-    $sql = "INSERT INTO userinfo (fullname, email, cred) VALUES (?, ?, ?)";
+    $sql = "INSERT INTO userinfo (fullname, email, password, when_created) VALUES (?, ?, ?, ?)";
 
     // Prepare and bind parameters
     $stmt = $connection->prepare($sql);
-    $stmt->bind_param("sss", $fullname, $email, $cred);
+    $stmt->bind_param("ssss", $fullname, $email, $cred, $when_created);
 
     // Execute the statement
     if ($stmt->execute() === TRUE) {

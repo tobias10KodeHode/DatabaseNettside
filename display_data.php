@@ -1,12 +1,13 @@
 <?php
 // Database connection
-$servername = "localhost";
-$username = "tobias";
-$password = "lWKtbY1ce4A8BhiK";
-$database = "userdb";
+$serverName = "mysql-164554-0.cloudclusters.net";
+$userName = "admin";
+$password = "i82lnHyw";
+$dbName = "userdb";
+$dbServerPort ="19904";
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $database);
+$conn = new mysqli($serverName, $userName, $password, $dbName, $dbServerPort);
 
 // Check connection
 if ($conn->connect_error) {
@@ -36,7 +37,7 @@ if ($result->num_rows > 0) {
     // Output data of each row
     while($row = $result->fetch_assoc()) {
         // Display the data
-        echo "ID: " . $row["id"]. " - Name: " . $row["fullname"]. " - Email: " . $row["email"]. " - Password: " . $row["cred"]. " ";
+        echo "ID: " . $row["id"]. " - Name: " . $row["fullname"]. " - Email: " . $row["email"]. " - Password: " . $row["password"]. " ";
         // Add a delete button for each row
         echo "<form method='post' action=''>"; // Form for each row
         echo "<input type='hidden' name='data_id' value='" . $row["id"] . "'>"; // Hidden input field to store the ID of the row

@@ -11,7 +11,7 @@
 
 <body>
     <div class="login-container">
-        <form id="login-form" method="post" action="login_script.php"> <!-- Add method and action attributes -->
+        <form id="login-form" method="post" action="./login_script.php"> <!-- Add method and action attributes -->
             <h2>Login</h2>
             <input type="text" id="username" name="username" placeholder="Username" required>
             <!-- Add name attribute -->

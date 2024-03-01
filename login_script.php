@@ -2,13 +2,14 @@
 
 
 // Database connection parameters
-$serverName = "localhost";
-$userName = "tobias";
-$password = "lWKtbY1ce4A8BhiK";
+$serverName = "mysql-164554-0.cloudclusters.net";
+$userName = "admin";
+$passWord = "i82lnHyw";
 $dbName = "userdb";
+$dbServerPort ="19904";
 
 // Establishing connection
-$connection = mysqli_connect($serverName, $userName, $password, $dbName);
+$connection = mysqli_connect($serverName, $userName, $passWord, $dbName, $dbServerPort);
 echo 'Connection Established!';
 
 // Check connection
