@@ -6,7 +6,7 @@ $passWord = "i82lnHyw";
 $dbName = "nefstadutvikling_nonefstadutvikling_userdb";
 
 // Create connection
-$conn = new mysqli($serverName, $userName, $password, $dbName);
+$conn = new mysqli($serverName, $userName, $passWord, $dbName);
 
 // Check connection
 if ($conn->connect_error) {
