@@ -1,13 +1,12 @@
 <?php
 // Database connection
-$serverName = "mysql-164554-0.cloudclusters.net";
-$userName = "admin";
-$password = "i82lnHyw";
+$serverName = "nefstadutvikling.no.mysql:3306";
+$userName = "nefstadutvikling_nonefstadutvikling_userdb";
+$passWord = "i82lnHyw";
 $dbName = "userdb";
-$dbServerPort ="19904";
 
 // Create connection
-$conn = new mysqli($serverName, $userName, $password, $dbName, $dbServerPort);
+$conn = new mysqli($serverName, $userName, $password, $dbName);
 
 // Check connection
 if ($conn->connect_error) {
