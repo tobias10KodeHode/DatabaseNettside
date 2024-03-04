@@ -3,7 +3,7 @@
 $serverName = "nefstadutvikling.no.mysql:3306";
 $userName = "nefstadutvikling_nonefstadutvikling_userdb";
 $passWord = "i82lnHyw";
-$dbName = "userdb";
+$dbName = "nefstadutvikling_nonefstadutvikling_userdb";
 
 // Create connection
 $conn = new mysqli($serverName, $userName, $password, $dbName);
