@@ -1,24 +1,25 @@
 <?php
 // Database connection
-$serverName = "nefstadutvikling.no.mysql:3306";
-$userName = "nefstadutvikling_nonefstadutvikling_userdb";
+$serverName = "mysql-164554-0.cloudclusters.net";
+$userName = "admin";
 $passWord = "i82lnHyw";
-$dbName = "nefstadutvikling_nonefstadutvikling_userdb";
+$dbName = "userdb";
+$port = "19904";
 
 // Create connection
-$conn = new mysqli($serverName, $userName, $passWord, $dbName);
+$conn = new mysqli($serverName, $userName, $passWord, $dbName, $port);
 
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Check if the delete button is clicked
+
 if(isset($_POST['delete_button'])) {
-    // Get the id of the row to be deleted
+    
     $id_to_delete = $_POST['data_id'];
 
-    // Query to delete the row
+    
     $delete_sql = "DELETE FROM userinfo WHERE id = $id_to_delete";
     if ($conn->query($delete_sql) === TRUE) {
         echo "Row deleted successfully.";
@@ -27,16 +28,17 @@ if(isset($_POST['delete_button'])) {
     }
 }
 
-// Query to select data from the table
+
 $sql = "SELECT * FROM userinfo";
 $result = $conn->query($sql);
 
-// Check if there are any rows returned
+
 if ($result->num_rows > 0) {
-    // Output data of each row
+   
     while($row = $result->fetch_assoc()) {
         // Display the data
-        echo "ID: " . $row["id"]. " - Name: " . $row["fullname"]. " - Email: " . $row["email"]. " - Password: " . $row["password"]. " ";
+        $text = "ID: " . $row["id"]. " - Name: " . $row["fullname"]. " - Email: " . $row["email"]. " - Password: " . $row["password"]. " ";
+        echo "<p>$text</p>";
         // Add a delete button for each row
         echo "<form method='post' action=''>"; // Form for each row
         echo "<input type='hidden' name='data_id' value='" . $row["id"] . "'>"; // Hidden input field to store the ID of the row

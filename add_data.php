@@ -1,12 +1,13 @@
 <?php
 
-$serverName = "nefstadutvikling.no.mysql:3306";
-$userName = "nefstadutvikling_nonefstadutvikling_userdb";
+$serverName = "mysql-164554-0.cloudclusters.net";
+$userName = "admin";
 $passWord = "i82lnHyw";
-$dbName = "nefstadutvikling_nonefstadutvikling_userdb";
+$dbName = "userdb";
+$port = "19904";
 
-// Establish database connection
-$connection = mysqli_connect($serverName, $userName, $passWord, $dbName);
+// Create connection
+$conn = new mysqli($serverName, $userName, $passWord, $dbName, $port);
 
 // Check connection
 if (!$connection) {
@@ -21,14 +22,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $when_created = date('Y-m-d H:i:s');
 
-    // Prepare SQL statement
+    
     $sql = "INSERT INTO userinfo (fullname, email, password, when_created) VALUES (?, ?, ?, ?)";
 
-    // Prepare and bind parameters
+    
     $stmt = $connection->prepare($sql);
     $stmt->bind_param("ssss", $fullname, $email, $cred, $when_created);
 
-    // Execute the statement
+    
     if ($stmt->execute() === TRUE) {
         echo "New record created successfully";
         header("Location: admin_panel.php");
@@ -36,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
 
-    // Close statement and connection
+    
     $stmt->close();
 }
 

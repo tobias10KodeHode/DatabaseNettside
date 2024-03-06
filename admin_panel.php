@@ -25,22 +25,22 @@
                 <label for="password">Password: </label>
                 <input type="password" name="credentials">
             </div>
-            <input type="submit" value="Submit">
+            <input id="submit" type="submit" value="Submit">
         </form>
     </div>
     <br>
     <h1> User Info </h1>
     <div class="display_data">
         <?php
-        // Include the database connection and query code
+        
         include 'display_data.php';
 
-        // Check if there are any rows returned
+        
         if ($result->num_rows > 0) {
-            // Output data of each row
+            
             while ($row = $result->fetch_assoc()) {
-                // Display the data (you can format it as needed)
-                echo "ID: " . $row["id"] . " - Name: " . $row["fullname"] . " - Email: " . $row["email"] . " - Password: " . $row["credentials"] . "<br>";
+                // Display the data 
+                echo $text;
             }
         } else {
             echo "0 results";

@@ -2,13 +2,14 @@
 
 
 // Database connection parameters
-$serverName = "nefstadutvikling.no.mysql:3306";
-$userName = "nefstadutvikling_nonefstadutvikling_userdb";
+$serverName = "mysql-164554-0.cloudclusters.net";
+$userName = "admin";
 $passWord = "i82lnHyw";
-$dbName = "nefstadutvikling_nonefstadutvikling_userdb";
+$dbName = "userdb";
+$port = "19904";
 
-// Establishing connection
-$connection = mysqli_connect($serverName, $userName, $passWord, $dbName);
+// Create connection
+$connection = new mysqli($serverName, $userName, $passWord, $dbName, $port);
 echo 'Connection Established!';
 
 // Check connection
